@@ -24,6 +24,7 @@ public:
 	bool parse_file(std::ifstream &in_file);
 	bool get_res_for_manufacture(std::string name_manufacture);
 	bool get_res_for_product(std::string name_manufacture);
+	bool get_res_for_vendor(int number_vendor, char **av);
 	
 	void print_all_data();
 

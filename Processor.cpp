@@ -85,6 +85,27 @@ bool Processor::get_res_for_product(std::string name_product){
 		file_res << "Empty result\n";
 	file_res.close();
 	return(true);
+}
+
+bool Processor::get_res_for_vendor(int number_vendor, char **av)
+{
+	std::ifstream in_file;
+	std::string raw_string;
+	std::ofstream file_res;
+
+	in_file.open(av[number_vendor]);
 	
+	if(!in_file || !in_file.is_open()){
+//		std::cout << "File \"" << av[number_vendor] << "\" dosn't open\n";
+		return(false);
+	}
+	else{
+		file_res.open((std::string)av[number_vendor] + "_result");
+		while(getline(in_file, raw_string)){
+			file_res << raw_string << '\n';
+		}
+	}
+	in_file.close();
+	return(true);
 }
 
