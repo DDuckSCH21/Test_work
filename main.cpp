@@ -24,5 +24,9 @@ int main(int ac, char** av){
 		}
 		in_file.close();
 	}
+	
+	
+	my_processor.print_all_data();
+//	while(1);
 		return(0);
 }
