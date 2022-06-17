@@ -9,8 +9,10 @@
 
 # define NUMB_FILE	5
 # define DELIM ','
-# define MANUFACT_1 'Производитель1'
-# define MANUFACT_2 'Произволитель2'
+# define MANUFACT_1 "Узбекистан"
+# define MANUFACT_2 "Lenovo"
+# define NAME_PRODUCT "Яблоки"
+
 
 class Processor{
 public:
@@ -18,7 +20,9 @@ public:
 	~Processor();
 	
 	bool parse_file(std::ifstream &in_file);
-	void get_res_for_manufacture(std::string name_manufacture);
+	bool get_res_for_manufacture(std::string name_manufacture);
+	bool get_res_for_product(std::string name_manufacture);
+	
 	void print_all_data();
 
 private:
@@ -26,6 +30,7 @@ private:
 	std::vector<std::vector<std::string> > _result_first;
 	std::vector<std::vector<std::string> > _result_second;
 	std::vector<std::vector<std::string> > _result_third;
+	std::string join_string_res(std::vector<std::string> vector_source);
 };
 
 #endif

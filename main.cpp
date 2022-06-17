@@ -24,6 +24,9 @@ int main(int ac, char** av){
 		}
 		in_file.close();
 	}
+	my_processor.get_res_for_manufacture(MANUFACT_1);
+	my_processor.get_res_for_manufacture(MANUFACT_2);
+	my_processor.get_res_for_product(NAME_PRODUCT);
 	
 	
 	my_processor.print_all_data();

@@ -33,20 +33,65 @@ bool Processor::parse_file(std::ifstream &in_file){
 		while(getline(tmp, token, DELIM)){
 			new_vector->push_back(token);
 		}
+		if(new_vector->size() != 4)
+			return(false);
 			_all_data.push_back(new_vector);
 			std::cout << "size=" << new_vector->size() << '\n';
 			new_vector = new std::vector<std::string>;
 	}
 	delete new_vector;
-	
-	
-//	if(new_vector->size() != 4)
-//		return(false);
-//	_all_data.push_back(new_vector);
 	return(true);
 }
 
-void Processor::get_res_for_manufacture(std::string name_manufacture){
+std::string Processor::join_string_res(std::vector<std::string> vector_source){
+	std::string res;
+	
+	for (int i = 0; i < vector_source.size(); i++)
+		res += vector_source[i] + ',';
+    res[res.size() - 1] = '\n';
+	return (res);
+}
 
+bool Processor::get_res_for_manufacture(std::string name_manufacture){
+	std::ofstream file_res;
+	std::vector<std::string> vector_tmp;
+	int flag_fill = 0;
+	
+	file_res.open(name_manufacture);
+	if (!file_res)
+		return(false);
+	for(int i = 0; i < _all_data.size(); i++){
+		vector_tmp = *_all_data[i];
+			if (vector_tmp[2] == name_manufacture){
+				file_res << join_string_res(vector_tmp);
+				flag_fill = 1;
+			}
+		}
+	if (!flag_fill)
+		file_res << "Empty result\n";
+	file_res.close();
+	return(true);
+}
+
+bool Processor::get_res_for_product(std::string name_product){
+	std::ofstream file_res;
+	std::vector<std::string> vector_tmp;
+	int flag_fill = 0;
+	
+	file_res.open(name_product);
+	if (!file_res)
+		return(false);
+	for(int i = 0; i < _all_data.size(); i++){
+		vector_tmp = *_all_data[i];
+		if (vector_tmp[0] == name_product){
+			file_res << join_string_res(vector_tmp);
+			flag_fill = 1;
+		}
+	}
+	if (!flag_fill)
+		file_res << "Empty result\n";
+	file_res.close();
+	return(true);
+	
 }
 
