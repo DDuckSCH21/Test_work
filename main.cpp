@@ -1,6 +1,6 @@
 #include <string>
 #include <iostream>
-#include <fstream>
+//#include <fstream>
 #include "Processor.hpp"
 
 int main(int ac, char** av){
@@ -13,9 +13,7 @@ int main(int ac, char** av){
 	}
 	
 	for (int i = 1; i < NUMB_FILE + 1; i++){
-		
 		in_file.open(av[i]);
-//		std::cout << av[i] << '\n';
 		if(!in_file || !in_file.is_open())
 			std::cout << "File \"" << av[i] << "\" dosn't open\n";
 		else{
@@ -27,9 +25,6 @@ int main(int ac, char** av){
 	my_processor.get_res_for_manufacture(MANUFACT_1);
 	my_processor.get_res_for_manufacture(MANUFACT_2);
 	my_processor.get_res_for_product(NAME_PRODUCT);
-	
-	
-	my_processor.print_all_data();
-//	while(1);
+//	my_processor.print_all_data();
 		return(0);
 }

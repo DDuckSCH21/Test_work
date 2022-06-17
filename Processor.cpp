@@ -22,21 +22,14 @@ bool Processor::parse_file(std::ifstream &in_file){
 	std::string token;
 	
 	std::vector<std::string> *new_vector;
-	
-//	std::cout << "kek1\n";
-	
 	new_vector = new std::vector<std::string>; //todo: delete in destructor Processor
-
 	while(getline(in_file, raw_string)){
-		
 		std::stringstream tmp(raw_string);
-		while(getline(tmp, token, DELIM)){
+		while(getline(tmp, token, DELIM))
 			new_vector->push_back(token);
-		}
 		if(new_vector->size() != 4)
 			return(false);
 			_all_data.push_back(new_vector);
-			std::cout << "size=" << new_vector->size() << '\n';
 			new_vector = new std::vector<std::string>;
 	}
 	delete new_vector;

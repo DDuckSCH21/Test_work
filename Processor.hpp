@@ -11,6 +11,8 @@
 # define DELIM ','
 # define MANUFACT_1 "Узбекистан"
 # define MANUFACT_2 "Lenovo"
+# define NUM_VENDOR1 1
+# define NUM_VENDOR2 2
 # define NAME_PRODUCT "Яблоки"
 
 
