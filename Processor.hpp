@@ -1,16 +1,25 @@
-//
-// Created by AlexTr on 16.06.2022.
-//
+#ifndef PROCESSOR_HPP
+# define PROCESSOR_HPP
 
-#ifndef TEST_WORK_PROCESSOR_HPP
-#define TEST_WORK_PROCESSOR_HPP
+#include <vector>
+#include <string>
+#include <fstream>
+#include <iostream>
 
+# define NUMB_FILE	5
+# define DELIM ','
 
+class Processor{
+public:
+	Processor();
+	~Processor();
+	
+	bool parse_file(std::ifstream &in_file);
+	void get_res_for_vendor(std::string name_vendor);
 
-class Processor {
-
+private:
+	std::vector<std::vector<std::string>* > _all_data;
 };
 
 
-
-#endif //TEST_WORK_PROCESSOR_HPP
+#endif
