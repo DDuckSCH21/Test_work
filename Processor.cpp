@@ -18,12 +18,18 @@ bool Processor::parse_file(std::ifstream &in_file){
 	new_vector = new std::vector<std::string>; //todo: delete in destructor Processor
 	
 	while(getline(in_file, token, DELIM)){
-		std::cout << token << '\n';
+//		std::cout << token << '\n';
 		new_vector->push_back(token);
 	}
 	_all_data.push_back(new_vector);
 
-	
+	for (int i = 0; i < _all_data.size(); i++)
+	{
+		for (int j = 0; j < _all_data[i]->size(); j++)
+		{
+			std::cout << _all_data[i] << '\n';
+		}
+	}
 	
 	return(true);
 }
